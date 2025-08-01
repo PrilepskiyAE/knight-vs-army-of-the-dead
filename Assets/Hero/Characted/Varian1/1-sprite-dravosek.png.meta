@@ -1,0 +1,1547 @@
+fileFormatVersion: 2
+guid: 3b24720c2cf19d645a3c55f7f8a0477d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3312962651429798214
+    second: 1-sprite-dravosek_0
+  - first:
+      213: -4947795258681341290
+    second: 1-sprite-dravosek_1
+  - first:
+      213: 903710740888103534
+    second: 1-sprite-dravosek_2
+  - first:
+      213: 3434235223293301431
+    second: 1-sprite-dravosek_3
+  - first:
+      213: 4853638149605407206
+    second: 1-sprite-dravosek_4
+  - first:
+      213: 8227215575103613628
+    second: 1-sprite-dravosek_5
+  - first:
+      213: -3779264375484545756
+    second: 1-sprite-dravosek_6
+  - first:
+      213: -3637829406682286472
+    second: 1-sprite-dravosek_7
+  - first:
+      213: 1258732144518908739
+    second: 1-sprite-dravosek_8
+  - first:
+      213: 3757403610075828433
+    second: 1-sprite-dravosek_9
+  - first:
+      213: 4599472653641496712
+    second: 1-sprite-dravosek_10
+  - first:
+      213: -7697701652419192140
+    second: 1-sprite-dravosek_11
+  - first:
+      213: 5408613442056428898
+    second: 1-sprite-dravosek_12
+  - first:
+      213: 7265546689338258967
+    second: 1-sprite-dravosek_13
+  - first:
+      213: 3894616895875798717
+    second: 1-sprite-dravosek_14
+  - first:
+      213: 6378711511200029723
+    second: 1-sprite-dravosek_15
+  - first:
+      213: -4477827397356223741
+    second: 1-sprite-dravosek_16
+  - first:
+      213: 7017097213452520314
+    second: 1-sprite-dravosek_17
+  - first:
+      213: -2479660418631338488
+    second: 1-sprite-dravosek_18
+  - first:
+      213: -570803551082482083
+    second: 1-sprite-dravosek_19
+  - first:
+      213: 2532540858736071019
+    second: 1-sprite-dravosek_20
+  - first:
+      213: -9000426697131979213
+    second: 1-sprite-dravosek_21
+  - first:
+      213: 5496734268212488914
+    second: 1-sprite-dravosek_22
+  - first:
+      213: 9130435772050878099
+    second: 1-sprite-dravosek_23
+  - first:
+      213: 4069738154683335597
+    second: 1-sprite-dravosek_24
+  - first:
+      213: 6627863486524783708
+    second: 1-sprite-dravosek_25
+  - first:
+      213: -566917733971071898
+    second: 1-sprite-dravosek_26
+  - first:
+      213: 3200317895086627398
+    second: 1-sprite-dravosek_27
+  - first:
+      213: 4303983568971592604
+    second: 1-sprite-dravosek_28
+  - first:
+      213: 6174627494455524485
+    second: 1-sprite-dravosek_29
+  - first:
+      213: -2250380775532686206
+    second: 1-sprite-dravosek_30
+  - first:
+      213: -7477439420281089216
+    second: 1-sprite-dravosek_31
+  - first:
+      213: 2283627533499865037
+    second: 1-sprite-dravosek_32
+  - first:
+      213: -4408690402753383142
+    second: 1-sprite-dravosek_33
+  - first:
+      213: -3215693893602779654
+    second: 1-sprite-dravosek_34
+  - first:
+      213: -1768767079402201468
+    second: 1-sprite-dravosek_35
+  - first:
+      213: 5874335382523078056
+    second: 1-sprite-dravosek_36
+  - first:
+      213: -8336247383034140845
+    second: 1-sprite-dravosek_37
+  - first:
+      213: -2656912515007076404
+    second: 1-sprite-dravosek_38
+  - first:
+      213: -919177932310838064
+    second: 1-sprite-dravosek_39
+  - first:
+      213: 6186422093372589560
+    second: 1-sprite-dravosek_40
+  - first:
+      213: -7812517945535382274
+    second: 1-sprite-dravosek_41
+  - first:
+      213: 8197649802400764428
+    second: 1-sprite-dravosek_42
+  - first:
+      213: 8742804589077002326
+    second: 1-sprite-dravosek_43
+  - first:
+      213: -3693010852299569747
+    second: 1-sprite-dravosek_44
+  - first:
+      213: 5539816510770729154
+    second: 1-sprite-dravosek_45
+  - first:
+      213: 8810946337251679769
+    second: 1-sprite-dravosek_46
+  - first:
+      213: 234981688196757183
+    second: 1-sprite-dravosek_47
+  - first:
+      213: -7334640025215449394
+    second: 1-sprite-dravosek_48
+  - first:
+      213: -7056926053474528440
+    second: 1-sprite-dravosek_49
+  - first:
+      213: 4430202493329789703
+    second: 1-sprite-dravosek_50
+  - first:
+      213: -8846458742684903904
+    second: 1-sprite-dravosek_51
+  - first:
+      213: 9008553529844799357
+    second: 1-sprite-dravosek_52
+  - first:
+      213: 5279452741165131190
+    second: 1-sprite-dravosek_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 706
+        width: 71
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6410c988af10afd20800000000000000
+      internalID: 3312962651429798214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 706
+        width: 498
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69acfe04d66e55bb0800000000000000
+      internalID: -4947795258681341290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_2
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 708
+        width: 73
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a275a7120aa8c00800000000000000
+      internalID: 903710740888103534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_3
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 708
+        width: 72
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2188f7dbad8af20800000000000000
+      internalID: 3434235223293301431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_4
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 708
+        width: 72
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9b38f6e269b5340800000000000000
+      internalID: 4853638149605407206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_5
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 706
+        width: 74
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbaac94d9f0fc2270800000000000000
+      internalID: 8227215575103613628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_6
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 706
+        width: 88
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42584fae21b5d8bc0800000000000000
+      internalID: -3779264375484545756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 529
+        width: 29
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8767b3dbd65d38dc0800000000000000
+      internalID: -3637829406682286472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 529
+        width: 10
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b4a65673ae77110800000000000000
+      internalID: 1258732144518908739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_9
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 529
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d017500daaf42430800000000000000
+      internalID: 3757403610075828433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_10
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 529
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 888bc6a620c94df30800000000000000
+      internalID: 4599472653641496712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_11
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 529
+        width: 71
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4badd9c91254c2590800000000000000
+      internalID: -7697701652419192140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_12
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 529
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d1d2df4414f0b40800000000000000
+      internalID: 5408613442056428898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_13
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 529
+        width: 73
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716b50d283864d460800000000000000
+      internalID: 7265546689338258967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_14
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 529
+        width: 73
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db659e6ae657c0630800000000000000
+      internalID: 3894616895875798717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_15
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 529
+        width: 70
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1cd5c5d25cb58850800000000000000
+      internalID: 6378711511200029723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_16
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 529
+        width: 73
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3030217e4bf8bd1c0800000000000000
+      internalID: -4477827397356223741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_17
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 529
+        width: 72
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b883accbcb16160800000000000000
+      internalID: 7017097213452520314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_18
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 529
+        width: 73
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 806f1efacf9769dd0800000000000000
+      internalID: -2479660418631338488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_19
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 528
+        width: 73
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56723dc1391418f0800000000000000
+      internalID: -570803551082482083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_20
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 529
+        width: 73
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6150283e74652320800000000000000
+      internalID: 2532540858736071019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 361
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e8182fa9f081380800000000000000
+      internalID: -9000426697131979213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_22
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 361
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2daa589a1b2584c40800000000000000
+      internalID: 5496734268212488914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_23
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 361
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39eac95a5f2d5be70800000000000000
+      internalID: 9130435772050878099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_24
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 361
+        width: 67
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da301ce0a4d9a7830800000000000000
+      internalID: 4069738154683335597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_25
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 378
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c771e99b6eafb50800000000000000
+      internalID: 6627863486524783708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_26
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 361
+        width: 67
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ce8c91357e128f0800000000000000
+      internalID: -566917733971071898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_27
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 362
+        width: 67
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ad6f86b20d96c20800000000000000
+      internalID: 3200317895086627398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_28
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 361
+        width: 67
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c937ba3a042dabb30800000000000000
+      internalID: 4303983568971592604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_29
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 361
+        width: 63
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cb16bddfea0b550800000000000000
+      internalID: 6174627494455524485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_30
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 361
+        width: 67
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28491019b9a05c0e0800000000000000
+      internalID: -2250380775532686206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_31
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 361
+        width: 68
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04394a4e67cca3890800000000000000
+      internalID: -7477439420281089216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_32
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 361
+        width: 67
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc79f8d742311bf10800000000000000
+      internalID: 2283627533499865037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 201
+        width: 72
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a15f53bdf6f21d2c0800000000000000
+      internalID: -4408690402753383142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_34
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 201
+        width: 74
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afdd965f07f8f53d0800000000000000
+      internalID: -3215693893602779654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_35
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 201
+        width: 74
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48e93dd66b31477e0800000000000000
+      internalID: -1768767079402201468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_36
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 205
+        width: 90
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5ebc628e4d58150800000000000000
+      internalID: 5874335382523078056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_37
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 201
+        width: 86
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35768762c23bf4c80800000000000000
+      internalID: -8336247383034140845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_38
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 201
+        width: 86
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7a6bff420c02bd0800000000000000
+      internalID: -2656912515007076404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_39
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 201
+        width: 67
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d40c336a8c6e33f0800000000000000
+      internalID: -919177932310838064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_40
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 201
+        width: 67
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f50a1aed169ad550800000000000000
+      internalID: 6186422093372589560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_41
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 207
+        width: 84
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efcbffe225c549390800000000000000
+      internalID: -7812517945535382274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 29
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c021621ff07e3c170800000000000000
+      internalID: 8197649802400764428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_43
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 37
+        width: 71
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658f690d37ea45970800000000000000
+      internalID: 8742804589077002326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_44
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 37
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da5850d323acfbcc0800000000000000
+      internalID: -3693010852299569747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_45
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 39
+        width: 18
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c0555de3c161ec40800000000000000
+      internalID: 5539816510770729154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_46
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 37
+        width: 96
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91e5ae6e205c64a70800000000000000
+      internalID: 8810946337251679769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_47
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 37
+        width: 102
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb670b5b992d24300800000000000000
+      internalID: 234981688196757183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_48
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 36
+        width: 99
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6cba5f1cf163a90800000000000000
+      internalID: -7334640025215449394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_49
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 37
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8439370c423c01e90800000000000000
+      internalID: -7056926053474528440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_50
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 37
+        width: 100
+        height: 103
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703d8f902bd3b7d30800000000000000
+      internalID: 4430202493329789703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_51
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 37
+        width: 102
+        height: 104
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0261e12e4a01b3580800000000000000
+      internalID: -8846458742684903904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_52
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 37
+        width: 106
+        height: 104
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d779d7eb4bfc40d70800000000000000
+      internalID: 9008553529844799357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1-sprite-dravosek_53
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 37
+        width: 96
+        height: 104
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b52c9ddb42644940800000000000000
+      internalID: 5279452741165131190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 023263d6a39d8c846bc08f8ed9d400bf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1-sprite-dravosek_0: 3312962651429798214
+      1-sprite-dravosek_1: -4947795258681341290
+      1-sprite-dravosek_10: 4599472653641496712
+      1-sprite-dravosek_11: -7697701652419192140
+      1-sprite-dravosek_12: 5408613442056428898
+      1-sprite-dravosek_13: 7265546689338258967
+      1-sprite-dravosek_14: 3894616895875798717
+      1-sprite-dravosek_15: 6378711511200029723
+      1-sprite-dravosek_16: -4477827397356223741
+      1-sprite-dravosek_17: 7017097213452520314
+      1-sprite-dravosek_18: -2479660418631338488
+      1-sprite-dravosek_19: -570803551082482083
+      1-sprite-dravosek_2: 903710740888103534
+      1-sprite-dravosek_20: 2532540858736071019
+      1-sprite-dravosek_21: -9000426697131979213
+      1-sprite-dravosek_22: 5496734268212488914
+      1-sprite-dravosek_23: 9130435772050878099
+      1-sprite-dravosek_24: 4069738154683335597
+      1-sprite-dravosek_25: 6627863486524783708
+      1-sprite-dravosek_26: -566917733971071898
+      1-sprite-dravosek_27: 3200317895086627398
+      1-sprite-dravosek_28: 4303983568971592604
+      1-sprite-dravosek_29: 6174627494455524485
+      1-sprite-dravosek_3: 3434235223293301431
+      1-sprite-dravosek_30: -2250380775532686206
+      1-sprite-dravosek_31: -7477439420281089216
+      1-sprite-dravosek_32: 2283627533499865037
+      1-sprite-dravosek_33: -4408690402753383142
+      1-sprite-dravosek_34: -3215693893602779654
+      1-sprite-dravosek_35: -1768767079402201468
+      1-sprite-dravosek_36: 5874335382523078056
+      1-sprite-dravosek_37: -8336247383034140845
+      1-sprite-dravosek_38: -2656912515007076404
+      1-sprite-dravosek_39: -919177932310838064
+      1-sprite-dravosek_4: 4853638149605407206
+      1-sprite-dravosek_40: 6186422093372589560
+      1-sprite-dravosek_41: -7812517945535382274
+      1-sprite-dravosek_42: 8197649802400764428
+      1-sprite-dravosek_43: 8742804589077002326
+      1-sprite-dravosek_44: -3693010852299569747
+      1-sprite-dravosek_45: 5539816510770729154
+      1-sprite-dravosek_46: 8810946337251679769
+      1-sprite-dravosek_47: 234981688196757183
+      1-sprite-dravosek_48: -7334640025215449394
+      1-sprite-dravosek_49: -7056926053474528440
+      1-sprite-dravosek_5: 8227215575103613628
+      1-sprite-dravosek_50: 4430202493329789703
+      1-sprite-dravosek_51: -8846458742684903904
+      1-sprite-dravosek_52: 9008553529844799357
+      1-sprite-dravosek_53: 5279452741165131190
+      1-sprite-dravosek_6: -3779264375484545756
+      1-sprite-dravosek_7: -3637829406682286472
+      1-sprite-dravosek_8: 1258732144518908739
+      1-sprite-dravosek_9: 3757403610075828433
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
