@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnamyNavigation : MonoBehaviour
@@ -13,7 +14,8 @@ public class EnamyNavigation : MonoBehaviour
     private bool forward;
     private Animator animator;
     private InfoEnany infoEnany;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private float _threshold = 1.1f;
     void Start()
     {
         currentState=EnemyState.Go;
@@ -27,6 +29,7 @@ public class EnamyNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         switch (currentState)
         {
             case EnemyState.Go: Go(); break;
@@ -40,16 +43,18 @@ public class EnamyNavigation : MonoBehaviour
 
     void Go()
     {
+        
         if (!infoEnany.isLive)
         {
             currentState = EnemyState.Dead;
         }
         animator.SetBool("attak", false);
-      //  animator.SetBool("run", true);
-    if (transform.position == targetPoint.position)
-        {
-            if (forward) currentPoint++; else currentPoint--;
 
+    if (Vector3.Distance(transform.position, targetPoint.position) < _threshold)
+        {
+            
+            if (forward) currentPoint++; else currentPoint--;
+            Debug.Log(currentPoint);
             if (currentPoint >= points.Length && cyclr)
             {
                 currentPoint = 0;
@@ -97,6 +102,7 @@ public class EnamyNavigation : MonoBehaviour
             currentState = EnemyState.Go;
         }
     }
+
 
     public void OnAnimationEvent()
     {
