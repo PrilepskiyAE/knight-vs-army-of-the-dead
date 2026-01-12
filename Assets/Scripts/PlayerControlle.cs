@@ -2,36 +2,76 @@ using UnityEngine;
 
 public class PlayerControlle : MonoBehaviour
 {
+[Header("Movement Settings")]
+    [SerializeField] private float _walkSpeed = 3f;
+    
+    [Header("References")]
+    [SerializeField] private Animator _animator;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private float _runSpeed = 6f;
+    
+    [Range(0f, 1f)]
+    [SerializeField] private float _acceleration = 0.4f;
+    private bool _isRunning;
 
-    public float _horizontal;
-    private float _speed = 6;
-    public Animator anim;
+    private float _horizontalInput;
+    private float _currentSpeed;
+    
+
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+    
+        if (_animator == null)
+            _animator = GetComponent<Animator>();
+
+        if (_spriteRenderer == null)
+            _spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void Update()
+
+    private void Update()
     {
-        _horizontal = Input.GetAxis("Horizontal");
-        transform.Translate(Vector2.right * Time.deltaTime * _speed * _horizontal);
-       
-        anim.SetBool("Attack", Input.GetKey(KeyCode.Space));
+        HandleInput();
+        HandleMovement();
+        HandleAnimation();
+        HandleFacingDirection();
+    }
 
-        anim.SetBool("Walk", _horizontal !=0);
+    private void HandleInput()
+    {
+        _horizontalInput = Input.GetAxis("Horizontal");
+        _isRunning = Input.GetKey(KeyCode.LeftShift);
+    }
 
-        if (_horizontal>0)
+    private void HandleMovement()
+    {
+    
+        float targetSpeed = _isRunning ? _runSpeed : _walkSpeed;
+        _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, _acceleration);
+
+        Vector2 movement = Vector2.right * _horizontalInput * _currentSpeed * Time.deltaTime;
+        transform.Translate(movement);
+    }
+
+    private void HandleAnimation()
+    {
+        float movementThreshold = 0.1f;
+        bool isMoving = Mathf.Abs(_horizontalInput) > movementThreshold;
+        _animator.SetBool("Walk", isMoving);
+        _animator.SetBool("Run", isMoving && _isRunning);
+        _animator.SetBool("Attack", isMoving && _isRunning && Input.GetKeyUp(KeyCode.Space));
+        if(!_isRunning)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-
+            _animator.SetBool("SAttack1", Input.GetKeyDown(KeyCode.Space)); 
         }
-
-        if(_horizontal < 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-
-        }
-
        
+    }
 
+    private void HandleFacingDirection()
+    {
+        if (Mathf.Abs(_horizontalInput) > 0.1f)
+        {
+            _spriteRenderer.flipX = _horizontalInput < 0f;
+        }
     }
 }
+
