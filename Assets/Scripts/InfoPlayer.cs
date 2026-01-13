@@ -9,12 +9,10 @@ public class InfoPlayer : MonoBehaviour
     public void Damage(float damage)
     {
         HP -= damage;
-        Debug.Log(HP);
     }
 
     public void UpHP(float value) {
     HP += value;
-        Debug.Log(HP);
     }
 
    

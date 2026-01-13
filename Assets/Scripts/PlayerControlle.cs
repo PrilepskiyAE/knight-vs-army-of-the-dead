@@ -1,8 +1,11 @@
+
 using UnityEngine;
 
-public class PlayerControlle : MonoBehaviour
+public enum PlayerState { Go, AttackEnemy, Dead }
+
+public class PlayerControlle : MonoBehaviour 
 {
-[Header("Movement Settings")]
+    [Header("Movement Settings")]
     [SerializeField] private float _walkSpeed = 3f;
     
     [Header("References")]
@@ -12,28 +15,63 @@ public class PlayerControlle : MonoBehaviour
     
     [Range(0f, 1f)]
     [SerializeField] private float _acceleration = 0.4f;
+    private bool _deadAnimationPlayed;
     private bool _isRunning;
-
     private float _horizontalInput;
     private float _currentSpeed;
-    
+    private InfoPlayer _infoPlayer;
+    private PlayerState _currentState;
+    private bool _isMoving;
 
     private void Awake()
     {
-    
-        if (_animator == null)
-            _animator = GetComponent<Animator>();
-
-        if (_spriteRenderer == null)
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+        // Оптимизировано: проверка и получение компонентов
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _infoPlayer = GetComponent<InfoPlayer>();
+        
+        _currentState = PlayerState.Go;
     }
 
     private void Update()
+    {   
+        switch (_currentState)
+        {
+            case PlayerState.Go: Go(); break;
+            case PlayerState.AttackEnemy: Attack(); break;
+            case PlayerState.Dead: Dead(); break;
+
+        }
+    }
+
+    private void Go()
     {
-        HandleInput();
-        HandleMovement();
-        HandleAnimation();
-        HandleFacingDirection();
+        if (_infoPlayer.HP > 0)
+        {
+            HandleInput();
+            HandleMovement();
+            HandleAnimation();
+            HandleFacingDirection();
+        }
+        else
+        {
+            _currentState = PlayerState.Dead;
+        }
+    }
+
+    private void Attack()
+    {
+        // Исправлено: логика атаки
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _animator.SetBool("Attack", _isMoving && _isRunning);
+            if (!_isRunning)
+            {
+                _animator.SetBool("SAttack1", true);
+            }
+        }
+
+        _currentState = PlayerState.Go;
     }
 
     private void HandleInput()
@@ -44,9 +82,8 @@ public class PlayerControlle : MonoBehaviour
 
     private void HandleMovement()
     {
-    
         float targetSpeed = _isRunning ? _runSpeed : _walkSpeed;
-        _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, _acceleration);
+        _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, _acceleration * Time.deltaTime); // Добавлен Time.deltaTime для плавности
 
         Vector2 movement = Vector2.right * _horizontalInput * _currentSpeed * Time.deltaTime;
         transform.Translate(movement);
@@ -55,16 +92,27 @@ public class PlayerControlle : MonoBehaviour
     private void HandleAnimation()
     {
         float movementThreshold = 0.1f;
-        bool isMoving = Mathf.Abs(_horizontalInput) > movementThreshold;
-        _animator.SetBool("Walk", isMoving);
-        _animator.SetBool("Run", isMoving && _isRunning);
-        _animator.SetBool("Attack", isMoving && _isRunning && Input.GetKeyUp(KeyCode.Space));
-        if(!_isRunning)
+        _isMoving = Mathf.Abs(_horizontalInput) > movementThreshold;
+        
+        _animator.SetBool("Walk", _isMoving);
+        _animator.SetBool("Run", _isMoving && _isRunning);
+
+        
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            _animator.SetBool("SAttack1", Input.GetKeyDown(KeyCode.Space)); 
+            _currentState = PlayerState.AttackEnemy;
         }
-       
     }
+
+    private void Dead()
+    {
+        if (!_deadAnimationPlayed)
+    {
+        _animator.SetBool("Dead", !_deadAnimationPlayed);
+        _deadAnimationPlayed = true;
+    }
+      
+    } 
 
     private void HandleFacingDirection()
     {
@@ -74,4 +122,3 @@ public class PlayerControlle : MonoBehaviour
         }
     }
 }
-
