@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PlayerState { Go,RunAttack, AttackEnemy, Dead }
@@ -6,71 +7,100 @@ public enum PlayerState { Go,RunAttack, AttackEnemy, Dead }
 public class PlayerControlle : MonoBehaviour 
 {
     [Header("Movement Settings")]
-    [SerializeField] private float _walkSpeed = 3f;
+    [SerializeField, Range(1f, 10f)] private float _walkSpeed = 3f;
+    [SerializeField, Range(3f, 15f)] private float _runSpeed = 6f;
+    [SerializeField, Range(0f, 1f)] private float _acceleration = 0.4f;
+
+    [Space(10)]
+    [Header("References")]
+    [SerializeField] private Animator _animator;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     
+    private InfoPlayer _infoPlayer;
+    private InfoEnany _infoEnamy; // Ссылка на текущего противника
     
-    private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
-    private float _runSpeed = 6f;
-    
-    [Range(0f, 1f)]
-    [SerializeField] private float _acceleration = 0.4f;
+    private PlayerState _currentState;
     private bool _deadAnimationPlayed;
     private bool _isRunning;
     private float _horizontalInput;
     private float _currentSpeed;
-    private InfoPlayer _infoPlayer;
-    private PlayerState _currentState;
     private bool _isMoving;
+
+    #region Unity Events
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _infoPlayer = GetComponent<InfoPlayer>();
-        
-        _currentState = PlayerState.Go;
+        InitializeComponents();
+        ValidateReferences();
     }
 
     private void Update()
-    {   
-        switch (_currentState)
-        {
-            case PlayerState.Go: Go(); break;
-            case PlayerState.AttackEnemy: Attack(); break;
-            case PlayerState.Dead: Dead(); break;
-            case PlayerState.RunAttack: RunAttack();break;
-
-        }
-    }
-
-    private void Go()
     {
-        if (_infoPlayer.HP > 0)
-        {
-            HandleInput();
-            HandleMovement();
-            HandleAnimation();
-            HandleFacingDirection();
-        }
-        else
+        if (_infoPlayer.HP <= 0)
         {
             _currentState = PlayerState.Dead;
         }
+        
+        StateMachine();
     }
 
-    private void Attack()
+    #endregion
+
+    #region State Machine
+
+    private void StateMachine()
     {
-    _animator.SetBool("SAttack1", true);     
-    _currentState = PlayerState.Go;
+        switch (_currentState)
+        {
+            case PlayerState.Go:
+                GoState();
+                break;
+            case PlayerState.AttackEnemy:
+                AttackState();
+                break;
+            case PlayerState.RunAttack:
+                RunAttackState();
+                break;
+            case PlayerState.Dead:
+                DeadState();
+                break;
+        }
     }
 
-    private void RunAttack()
+    private void GoState()
     {
-     Debug.Log("EVENT");  
-    _animator.SetBool("Attack", true);     
-    _currentState = PlayerState.Go;
+        HandleInput();
+        HandleMovement();
+        HandleAnimation();
+        HandleFacingDirection();
     }
+
+    private void AttackState()
+    {
+        _animator.SetBool("SAttack1", true);
+        AttemptAttack();
+        _currentState = PlayerState.Go;
+    }
+
+    private void RunAttackState()
+    {
+        _animator.SetBool("Attack", true);
+        AttemptAttack();
+        _currentState = PlayerState.Go;
+    }
+
+    private void DeadState()
+    {
+        if (!_deadAnimationPlayed)
+        {
+            _animator.SetTrigger("Dead");
+            _deadAnimationPlayed = true;
+        }
+    }
+
+    #endregion
+
+    #region Input & Movement
 
     private void HandleInput()
     {
@@ -81,46 +111,44 @@ public class PlayerControlle : MonoBehaviour
     private void HandleMovement()
     {
         float targetSpeed = _isRunning ? _runSpeed : _walkSpeed;
-        _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, _acceleration * Time.deltaTime); // Добавлен Time.deltaTime для плавности
+        _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, _acceleration * Time.deltaTime);
 
         Vector2 movement = Vector2.right * _horizontalInput * _currentSpeed * Time.deltaTime;
         transform.Translate(movement);
     }
 
+    #endregion
+
+    #region Animation
+
     private void HandleAnimation()
     {
-        float movementThreshold = 0.1f;
-        _isMoving = Mathf.Abs(_horizontalInput) > movementThreshold;
-        _animator.SetBool("SAttack1", false);
-    
+        _isMoving = Mathf.Abs(_horizontalInput) > 0.1f;
+
         _animator.SetBool("Walk", _isMoving);
         _animator.SetBool("Run", _isMoving && _isRunning);
- 
         
-        if (Input.GetKeyDown(KeyCode.Space) && _isRunning)
-        {
-            _currentState = PlayerState.RunAttack;
-        }else
-        {
-            _animator.SetBool("Attack", false);  
-        }
+        // Reset attack states
+        _animator.SetBool("SAttack1", false);
+        _animator.SetBool("SAttack2", false);
+        _animator.SetBool("Attack", false);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_isRunning)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            _currentState = PlayerState.AttackEnemy;
+            if (_isRunning)
+            {
+                _currentState = PlayerState.RunAttack;
+            }
+            else
+            {
+                _currentState = PlayerState.AttackEnemy;
+            }
         }
-        
     }
 
-    private void Dead()
-    {
-        if (!_deadAnimationPlayed)
-    {
-        _animator.SetBool("Dead", !_deadAnimationPlayed);
-        _deadAnimationPlayed = true;
-    }
-      
-    } 
+    #endregion
+
+    #region Facing Direction
 
     private void HandleFacingDirection()
     {
@@ -129,4 +157,75 @@ public class PlayerControlle : MonoBehaviour
             _spriteRenderer.flipX = _horizontalInput < 0f;
         }
     }
+
+    #endregion
+
+    #region Collision Events
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enamy"))
+        {
+            _infoEnamy = other.GetComponent<InfoEnany>();
+            Debug.Log("Enamy detected: " + _infoEnamy.gameObject.name);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Enamy"))
+        {
+            _infoEnamy = null;
+            Debug.Log("Enamy lost: " + other.name);
+        }
+    }
+
+    #endregion
+
+    #region Attack Logic
+
+    /// <summary>
+    /// Пытается нанести урон противнику при атаке
+    /// </summary>
+    private void AttemptAttack()
+    {
+        if (_infoEnamy != null && _infoEnamy.gameObject.activeInHierarchy)
+        {
+            // Проверяем, что противник существует и активен
+            bool isDamageApplied = _infoEnamy!=null;
+            
+            if (isDamageApplied)
+            {
+                Debug.Log("Damage dealt to: " + _infoEnamy.gameObject.name);
+            }
+            else
+            {
+                Debug.LogWarning("Failed to deal damage to: " + _infoEnamy.gameObject.name);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No valid enemy to attack!");
+        }
+    }
+
+    #endregion
+
+    #region Initialization
+
+    private void InitializeComponents()
+    {
+        if (_animator == null) _animator = GetComponent<Animator>();
+        if (_spriteRenderer == null) _spriteRenderer = GetComponent<SpriteRenderer>();
+        _infoPlayer = GetComponent<InfoPlayer>();
+    }
+
+    private void ValidateReferences()
+    {
+        if (_animator == null) Debug.LogError("Animator не найден на объекте!");
+        if (_spriteRenderer == null) Debug.LogError("SpriteRenderer не найден на объекте!");
+        if (_infoPlayer == null) Debug.LogError("InfoPlayer не найден на объекте!");
+    }
+
+    #endregion
 }

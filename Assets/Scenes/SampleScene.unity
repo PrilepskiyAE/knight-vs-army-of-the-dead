@@ -2392,7 +2392,7 @@ GameObject:
   m_Layer: 0
   m_Name: point2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2405,7 +2405,7 @@ Transform:
   m_GameObject: {fileID: 596935378}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.31, y: -5.18, z: 0}
+  m_LocalPosition: {x: 20.03, y: -4.2, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3327,21 +3327,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784522772}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adc389ca32675e14dabffc49af2f2e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   contactFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 1024
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -4731,7 +4731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7602366711053158306, guid: 56e2a525e0fbd93419c9b313c362934d, type: 3}
       propertyPath: m_SortingOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7602366711053158307, guid: 56e2a525e0fbd93419c9b313c362934d, type: 3}
       propertyPath: m_Name
@@ -4836,9 +4836,10 @@ GameObject:
   - component: {fileID: 1320885750}
   - component: {fileID: 1320885751}
   - component: {fileID: 1320885752}
-  m_Layer: 0
+  - component: {fileID: 1320885753}
+  m_Layer: 9
   m_Name: Sceleton1
-  m_TagString: Untagged
+  m_TagString: Enamy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4985,11 +4986,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.052941754, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4999,7 +5000,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.55, y: 0.59}
+  m_Size: {x: 0.23663646, y: 0.59}
   m_EdgeRadius: 0
 --- !u!114 &1320885751
 MonoBehaviour:
@@ -5016,7 +5017,33 @@ MonoBehaviour:
   HP: 100
   maxHP: 100
   isLive: 1
---- !u!50 &1320885752
+--- !u!114 &1320885752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320885745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc389ca32675e14dabffc49af2f2e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackPlayer
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+--- !u!50 &1320885753
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -5024,7 +5051,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320885745}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -7917,7 +7944,7 @@ GameObject:
   m_Layer: 0
   m_Name: point1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7930,7 +7957,7 @@ Transform:
   m_GameObject: {fileID: 1945308707}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.79, y: -5.17, z: 0}
+  m_LocalPosition: {x: 11.82, y: -4.2, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children: []

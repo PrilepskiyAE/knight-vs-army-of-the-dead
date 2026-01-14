@@ -6,7 +6,6 @@ public class HealthBar : MonoBehaviour
     public Image healthBar;
     public InfoPlayer player;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [System.Obsolete]
     void Start()
     {
