@@ -11,6 +11,7 @@ public class InfoEnany : MonoBehaviour
     {
         HP -= damage;
         Debug.Log(HP);
+        Debug.Log("=========");
     }
 
     public void UpHP(float value)
