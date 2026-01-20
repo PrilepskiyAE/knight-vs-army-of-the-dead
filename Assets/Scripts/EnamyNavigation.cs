@@ -6,22 +6,24 @@ public class EnamyNavigation : MonoBehaviour
     public enum EnemyState { Go,AttackPlayer, Dead }
     public EnemyState currentState;
     public Transform[] points;
-    
     private float speed=1;
     private Transform targetPoint;
     private int currentPoint;
     public bool cyclr = true;
     private bool forward;
     private Animator animator;
+    private SpriteRenderer sprite;
+
     private InfoEnany infoEnany;
 
     private float _threshold = 1.1f;
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+        sprite=GetComponentInChildren<SpriteRenderer>();
         currentState=EnemyState.Go;
         forward = false;
-        currentPoint = 0;
-        animator = GetComponent<Animator>();    
+        currentPoint = 0;    
         targetPoint = points[currentPoint];
         infoEnany= GetComponent<InfoEnany>();
     }
@@ -38,7 +40,7 @@ public class EnamyNavigation : MonoBehaviour
         }
     }
     void Dead(){
-        animator.SetBool("dead", true);
+         animator.SetBool("dead", true);
     }
 
     void Go()
@@ -48,7 +50,7 @@ public class EnamyNavigation : MonoBehaviour
         {
             currentState = EnemyState.Dead;
         }
-        animator.SetBool("attak", false);
+         animator.SetBool("attak", false);
 
     if (Vector3.Distance(transform.position, targetPoint.position) < _threshold)
         {
@@ -72,7 +74,7 @@ public class EnamyNavigation : MonoBehaviour
                 currentPoint = 1;
                 
             }
-            GetComponent<SpriteRenderer>().flipX = currentPoint == 0;
+            sprite.flipX = currentPoint == 0;
             targetPoint = points[currentPoint];
         }
         transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
@@ -83,8 +85,8 @@ public class EnamyNavigation : MonoBehaviour
         {
             currentState = EnemyState.Dead;
         }
-        //  animator.SetBool("run", false);
-        animator.SetBool("attak",true);
+          animator.SetBool("run", false);
+         animator.SetBool("attak",true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
