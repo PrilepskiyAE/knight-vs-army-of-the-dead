@@ -1,9 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
-public class EnamyNavigation : MonoBehaviour
+public interface IShase
 {
-    public enum EnemyState { Go,AttackPlayer, Dead }
+    void  IsShase(bool action);
+}
+public class EnamyNavigation : MonoBehaviour,IShase
+{
+    public enum EnemyState { Go,AttackPlayer, Dead, cShase }
     public EnemyState currentState;
     public Transform[] points;
     private float speed=1;
@@ -37,10 +40,18 @@ public class EnamyNavigation : MonoBehaviour
             case EnemyState.Go: Go(); break;
             case EnemyState.AttackPlayer: AttackPlayer(); break;
             case EnemyState.Dead: Dead(); break;
+            case EnemyState.cShase: Shase(); break;
         }
     }
     void Dead(){
          animator.SetBool("dead", true);
+    }
+
+    void Shase()
+    {
+        Debug.Log("wwwwwaaaaaaaachhhh");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     void Go()
@@ -101,14 +112,12 @@ public class EnamyNavigation : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            currentState = EnemyState.Go;
+            currentState = EnemyState.cShase;
         }
     }
 
-
-    public void OnAnimationEvent()
+    public void IsShase(bool action)
     {
-        Debug.Log("Animation Event Triggered!");
+        if(action) currentState = EnemyState.cShase; else currentState = EnemyState.Go;
     }
-
 }
