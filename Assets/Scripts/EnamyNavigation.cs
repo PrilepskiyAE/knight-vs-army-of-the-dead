@@ -20,6 +20,9 @@ public class EnamyNavigation : MonoBehaviour,IShase
     private InfoEnany infoEnany;
 
     private float _threshold = 1.1f;
+
+    private bool detected=true;
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -46,28 +49,65 @@ public class EnamyNavigation : MonoBehaviour,IShase
     void Dead(){
          animator.SetBool("dead", true);
     }
-
-    void Shase()
+void Shase()
+{
+         animator.SetBool("attak", false);
+   GameObject player = GameObject.FindGameObjectWithTag("Player");
+    
+    if (player == null)
     {
-        Debug.Log("wwwwwaaaaaaaachhhh");
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        Debug.LogWarning("Игрок не найден!");
+        return;
     }
+
+    if (points == null || points.Length < 2)
+    {
+        Debug.LogError("Массив points не содержит достаточно точек!");
+        return;
+    }
+
+    Vector2 currentPos = transform.position;
+    float targetX = player.transform.position.x;
+
+    float minX = Mathf.Min(points[0].position.x, points[1].position.x);
+    float maxX = Mathf.Max(points[0].position.x, points[1].position.x);
+
+
+
+  
+    targetX = Mathf.Clamp(targetX, minX, maxX);
+
+    float newX = Mathf.MoveTowards(
+        currentPos.x,
+        targetX,
+        speed * Time.deltaTime
+    );
+    newX = Mathf.Clamp(newX, minX, maxX);
+    bool reachedLeft  = Mathf.Approximately(newX, minX);
+    bool reachedRight = Mathf.Approximately(newX, maxX);
+
+
+    if (reachedLeft || reachedRight) animator.SetTrigger("IdleOk");
+        
+        
+        
+
+    transform.position = new Vector2(newX, currentPos.y);
+}
 
     void Go()
     {
-        
         if (!infoEnany.isLive)
         {
             currentState = EnemyState.Dead;
         }
          animator.SetBool("attak", false);
+         animator.SetTrigger("IdleNok");
 
     if (Vector3.Distance(transform.position, targetPoint.position) < _threshold)
         {
             
             if (forward) currentPoint++; else currentPoint--;
-            Debug.Log(currentPoint);
             if (currentPoint >= points.Length && cyclr)
             {
                 currentPoint = 0;
@@ -96,7 +136,8 @@ public class EnamyNavigation : MonoBehaviour,IShase
         {
             currentState = EnemyState.Dead;
         }
-          animator.SetBool("run", false);
+         animator.SetTrigger("IdleNok");
+         animator.SetBool("run", false);
          animator.SetBool("attak",true);
     }
 
@@ -104,6 +145,7 @@ public class EnamyNavigation : MonoBehaviour,IShase
     {
         if (collision.CompareTag("Player"))
         {
+            
             currentState=EnemyState.AttackPlayer;
         }
     }
@@ -118,6 +160,18 @@ public class EnamyNavigation : MonoBehaviour,IShase
 
     public void IsShase(bool action)
     {
-        if(action) currentState = EnemyState.cShase; else currentState = EnemyState.Go;
+        
+        if (action)
+        {
+            if (detected)
+            {
+               currentState = EnemyState.cShase; 
+               detected=false;
+            }
+            
+        } else {
+            currentState = EnemyState.Go;
+            detected=true;
+            }
     }
 }
