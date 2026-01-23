@@ -809,9 +809,9 @@ GameObject:
   - component: {fileID: 164280195}
   - component: {fileID: 164280194}
   - component: {fileID: 164280201}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BaseEnamy
-  m_TagString: Untagged
+  m_TagString: Enamy
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3508,18 +3508,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   maxHP: 100
---- !u!114 &784522786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784522772}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc389ca32675e14dabffc49af2f2e12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &814982821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18663,9 +18651,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5143692270892709844, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
       insertIndex: -1
       addedObject: {fileID: 784522779}
-    - targetCorrespondingSourceObject: {fileID: 5143692270892709844, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 784522786}
   m_SourcePrefab: {fileID: 100100000, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
