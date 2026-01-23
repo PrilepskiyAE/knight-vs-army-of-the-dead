@@ -2,9 +2,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum PlayerState { Go,RunAttack, AttackEnemy, Dead }
+public enum PlayerState { Go, RunAttack, AttackEnemy, Dead }
 
-public class PlayerControlle : MonoBehaviour 
+public class PlayerControlle : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField, Range(1f, 10f)] private float _walkSpeed = 3f;
@@ -15,10 +15,9 @@ public class PlayerControlle : MonoBehaviour
     [Header("References")]
     [SerializeField] private Animator _animator;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    
+
     private InfoPlayer _infoPlayer;
-    private InfoEnany _infoEnamy; // Ссылка на текущего противника
-    
+    private InfoEnany _infoEnamy;
     private PlayerState _currentState;
     private bool _deadAnimationPlayed;
     private bool _isRunning;
@@ -40,7 +39,7 @@ public class PlayerControlle : MonoBehaviour
         {
             _currentState = PlayerState.Dead;
         }
-        
+
         StateMachine();
     }
 
@@ -77,15 +76,18 @@ public class PlayerControlle : MonoBehaviour
 
     private void AttackState()
     {
+        if (_infoEnamy != null)
+        {
+            Debug.Log("Damage dealt to: " + _infoEnamy.gameObject.name);
+        }
+
         _animator.SetBool("SAttack1", true);
-        AttemptAttack();
         _currentState = PlayerState.Go;
     }
 
     private void RunAttackState()
     {
         _animator.SetBool("Attack", true);
-        AttemptAttack();
         _currentState = PlayerState.Go;
     }
 
@@ -127,7 +129,7 @@ public class PlayerControlle : MonoBehaviour
 
         _animator.SetBool("Walk", _isMoving);
         _animator.SetBool("Run", _isMoving && _isRunning);
-        
+
         // Reset attack states
         _animator.SetBool("SAttack1", false);
         _animator.SetBool("SAttack2", false);
@@ -166,7 +168,7 @@ public class PlayerControlle : MonoBehaviour
     {
         if (other.CompareTag("Enamy"))
         {
-            _infoEnamy = other.GetComponent<InfoEnany>();
+            _infoEnamy = other.GetComponentInChildren<InfoEnany>();
             Debug.Log("Enamy detected: " + _infoEnamy.gameObject.name);
         }
     }
@@ -179,24 +181,22 @@ public class PlayerControlle : MonoBehaviour
             Debug.Log("Enamy lost: " + other.name);
         }
     }
-
+    public void AttemptAttackTask()
     #endregion
 
     #region Attack Logic
 
-    /// <summary>
-    /// Пытается нанести урон противнику при атаке
-    /// </summary>
-    private void AttemptAttack()
+
     {
         if (_infoEnamy != null && _infoEnamy.gameObject.activeInHierarchy)
         {
             // Проверяем, что противник существует и активен
-            bool isDamageApplied = _infoEnamy!=null;
-            
+            bool isDamageApplied = _infoEnamy != null;
+
             if (isDamageApplied)
             {
-                Debug.Log("Damage dealt to: " + _infoEnamy.gameObject.name);
+
+                _infoEnamy.Damage(100);
             }
             else
             {
