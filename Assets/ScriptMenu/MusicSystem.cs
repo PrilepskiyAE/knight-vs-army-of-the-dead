@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class MusicSystem : MonoBehaviour
 {
-    public AudioClip musicClip;
-    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip musicClip;
+    private AudioSource _audioSource;
 
     void Start()
     {
         // Получаем или добавляем AudioSource
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        audioSource.clip = musicClip;
-        audioSource.loop = true;
-        audioSource.playOnAwake = false;
+        _audioSource.clip = musicClip;
+        _audioSource.loop = true;
+        _audioSource.playOnAwake = false;
         int isMusic = PlayerPrefs.GetInt("isMusic", 1);  
         if (isMusic == 1)
         {
@@ -31,18 +32,18 @@ public class MusicSystem : MonoBehaviour
 
     public  void PlayMusic()
     {
-            audioSource.Play();
+            _audioSource.Play();
     }
 
     public void StopMusic()
     {
-        audioSource.Stop();
+        _audioSource.Stop();
     }
 
     public void ResumeMusic()
     {
-        if (!audioSource.isPlaying)
-            audioSource.Play();
+        if (!_audioSource.isPlaying)
+            _audioSource.Play();
     }
 
 }

@@ -11,20 +11,20 @@ public class DialogActivation : MonoBehaviour
     [SerializeField]
     private int index = 0;
 
-    private List<string> dialogs = new List<string>() { 
+    private List<string> dialogs = new List<string>() {
         "Проклятая лошадь сбежала",
         "О, Костер на кладбище!!! Выглядит очень странно!",
         "О черт, Это зомби" };
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         dialogSystem.SetActive(true);
-        text.text = dialogs[index];     
+        text.text = dialogs[index];
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-    
+
         dialogSystem.SetActive(false);
     }
 }

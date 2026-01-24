@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         healthBar = GetComponent<Image>();
-        player =  FindObjectOfType<InfoPlayer>();
+        player = FindObjectOfType<InfoPlayer>();
     }
 
     // Update is called once per frame

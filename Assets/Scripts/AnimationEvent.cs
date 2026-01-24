@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class AnimationEvent : MonoBehaviour
 {
-    GameObject player; 
-     private void Awake() {
-         player = GameObject.FindGameObjectWithTag("Player");
+    private GameObject _player;
+    private void Awake()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
-     public void OnAnimationEvent()
+    public void OnAnimationEvent()
     {
-       player.GetComponent<InfoPlayer>().Damage(10f);
+        _player.GetComponent<InfoPlayer>().Damage(10f);
     }
 
 }
