@@ -2,7 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum PlayerState { Go, RunAttack, AttackEnemy, Dead }
+public enum PlayerState { Go, RunAttack, AttackEnemy, Dead, Protection }
 
 public class PlayerControlle : MonoBehaviour
 {
@@ -25,6 +25,8 @@ public class PlayerControlle : MonoBehaviour
     private float _currentSpeed;
     private bool _isMoving;
 
+    private bool _sTAction = false;
+
     #region Unity Events
 
     private void Awake()
@@ -39,7 +41,7 @@ public class PlayerControlle : MonoBehaviour
         {
             _currentState = PlayerState.Dead;
         }
-
+        HandleInput();
         StateMachine();
     }
 
@@ -51,6 +53,9 @@ public class PlayerControlle : MonoBehaviour
     {
         switch (_currentState)
         {
+            case PlayerState.Protection:
+                ProtectionState();
+                break;
             case PlayerState.Go:
                 GoState();
                 break;
@@ -66,9 +71,24 @@ public class PlayerControlle : MonoBehaviour
         }
     }
 
+    private void ProtectionState()
+    {
+        
+        if (_sTAction && _infoPlayer.ST > 0)
+        {
+            _animator.SetBool("Protected", true);
+            _infoPlayer.setSTAction(true);
+        }  
+        else
+        {
+            _animator.SetBool("Protected", false);
+            _infoPlayer.setSTAction(false);
+            _currentState = PlayerState.Go;
+        }
+
+    }
     private void GoState()
     {
-        HandleInput();
         HandleMovement();
         HandleAnimation();
         HandleFacingDirection();
@@ -108,15 +128,22 @@ public class PlayerControlle : MonoBehaviour
     {
         _horizontalInput = Input.GetAxis("Horizontal");
         _isRunning = Input.GetKey(KeyCode.LeftShift);
+        _sTAction = Input.GetKey(KeyCode.F);
     }
 
     private void HandleMovement()
     {
         float targetSpeed = _isRunning ? _runSpeed : _walkSpeed;
         _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, _acceleration * Time.deltaTime);
-
-        Vector2 movement = Vector2.right * _horizontalInput * _currentSpeed * Time.deltaTime;
-        transform.Translate(movement);
+        if (!_sTAction)
+        {
+            Vector2 movement = Vector2.right * _horizontalInput * _currentSpeed * Time.deltaTime;
+            transform.Translate(movement);
+        }
+        else
+        {
+            _currentState = PlayerState.Protection;
+        }
     }
 
     #endregion
@@ -181,12 +208,11 @@ public class PlayerControlle : MonoBehaviour
             Debug.Log("Enamy lost: " + other.name);
         }
     }
-    public void AttemptAttackTask()
+
     #endregion
 
     #region Attack Logic
-
-
+    public void AttemptAttackTask()
     {
         if (_infoEnamy != null && _infoEnamy.gameObject.activeInHierarchy)
         {
@@ -196,7 +222,7 @@ public class PlayerControlle : MonoBehaviour
             if (isDamageApplied)
             {
 
-                _infoEnamy.Damage(100);
+                _infoEnamy.Damage(10);
             }
             else
             {

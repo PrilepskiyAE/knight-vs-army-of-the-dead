@@ -9,5 +9,5 @@ public class ButtonSystemSelectLevel : MonoBehaviour
     {
         l1.onClick.AddListener(navigateL1);
     }
-   void navigateL1() => SceneManager.LoadScene(1);
+    void navigateL1() => SceneManager.LoadScene(1);
 }

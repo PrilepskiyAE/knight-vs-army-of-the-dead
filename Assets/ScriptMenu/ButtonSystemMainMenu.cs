@@ -6,12 +6,12 @@ public class ButtonSystemMainMenu : MonoBehaviour
 {
     [SerializeField]
     private Button startBt;
-     [SerializeField]
+    [SerializeField]
     private Button settingsBt;
     [SerializeField]
     private Button exitBt;
 
- private void Start()
+    private void Start()
     {
         startBt.onClick.AddListener(OnClickStart);
         settingsBt.onClick.AddListener(OnClickSettings);
@@ -20,11 +20,11 @@ public class ButtonSystemMainMenu : MonoBehaviour
     }
 
 
-     public void OnClickStart() => SceneManager.LoadScene(3);
+    public void OnClickStart() => SceneManager.LoadScene(3);
 
-    
+
     public void OnClickSettings() => SceneManager.LoadScene(2);
-    
+
 
     public void OnClickExit() => Application.Quit();
 }

@@ -2,43 +2,43 @@ using UnityEngine;
 
 public class AttackPlayer : MonoBehaviour
 {
-    private readonly RaycastHit2D[] raycastHit2D = new RaycastHit2D[1];
-    private ContactFilter2D contactFilter;
-    private Rigidbody2D rb;
+    private readonly RaycastHit2D[] _raycastHit2D = new RaycastHit2D[1];
+    private ContactFilter2D _contactFilter;
+    private Rigidbody2D _rb;
 
-    private InfoEnany infoEnany;
+    private InfoEnany _infoEnany;
 
-    private bool collisionCount;
-    private bool collisionCount2;
+    private bool _collisionCount;
+    private bool _collisionCount2;
 
     private void Start()
     {
-        infoEnany = GetComponent<InfoEnany>();
-        rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
+        _infoEnany = GetComponent<InfoEnany>();
+        _rb = GetComponent<Rigidbody2D>();
+        if (_rb == null)
         {
             Debug.LogError("Rigidbody2D не найден на объекте!");
         }
 
-        contactFilter.SetLayerMask(LayerMask.GetMask("Player"));
-        contactFilter.useLayerMask = true;
-        contactFilter.useTriggers = true;
+        _contactFilter.SetLayerMask(LayerMask.GetMask("Player"));
+        _contactFilter.useLayerMask = true;
+        _contactFilter.useTriggers = true;
     }
 
 
     void Update()
     {
-        if (infoEnany.isLive)
+        if (_infoEnany.isLive)
         {
             // Визуализация лучей
             Debug.DrawRay(transform.position, transform.right * 4, Color.red);
             Debug.DrawRay(transform.position, -transform.right * 4, Color.blue);
 
-            collisionCount = rb.Cast(transform.right, contactFilter, raycastHit2D, 4) > 0;
-            collisionCount2 = rb.Cast(-transform.right, contactFilter, raycastHit2D, 4) > 0;
+            _collisionCount = _rb.Cast(transform.right, _contactFilter, _raycastHit2D, 4) > 0;
+            _collisionCount2 = _rb.Cast(-transform.right, _contactFilter, _raycastHit2D, 4) > 0;
 
             //  target.IsShase(collisionCount || collisionCount2);
-            if (collisionCount || collisionCount2)
+            if (_collisionCount || _collisionCount2)
             {
                 TurnTowardsPlayer();
             }

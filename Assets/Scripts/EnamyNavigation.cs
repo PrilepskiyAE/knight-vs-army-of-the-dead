@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 public interface IShase
@@ -24,7 +25,7 @@ public class EnamyNavigation : MonoBehaviour, IShase
     private bool detected = true;
 
     private bool isLive = true;
-
+    private bool canAttack = true;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -59,7 +60,7 @@ public class EnamyNavigation : MonoBehaviour, IShase
         if (isLive)
         {
             isLive = false;
-             animator.SetBool("attak", false);
+            animator.SetBool("attak", false);
             animator.SetTrigger("Dead");
         }
 
@@ -139,14 +140,25 @@ public class EnamyNavigation : MonoBehaviour, IShase
 
     void AttackPlayer()
     {
+         if (!canAttack || !infoEnany.isLive) return;
         animator.SetTrigger("IdleNok");
         animator.SetBool("run", false);
         animator.SetBool("attak", infoEnany.isLive);
+        StartCoroutine(AttackCooldown());
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        canAttack = false; 
+        yield return new WaitForSeconds(1f); 
+        animator.SetBool("attak", false); 
+        canAttack = true;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && infoEnany.isLive )
+        if (collision.CompareTag("Player") && infoEnany.isLive)
         {
 
             currentState = EnemyState.AttackPlayer;

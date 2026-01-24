@@ -19,10 +19,10 @@ public class ButtonSystemSettingsMenu : MonoBehaviour
     [SerializeField]
     private Text soundBtText;
 
-    private MusicSystem  musicSystem;
+    private MusicSystem  _musicSystem;
 
-    private int isSound = 1;
-    private int isMusic = 1;
+    private int _isSound = 1;
+    private int _isMusic = 1;
 
 
 
@@ -30,13 +30,12 @@ public class ButtonSystemSettingsMenu : MonoBehaviour
     private void Start()
     {
 
-        musicSystem=  gameObject.GetComponent(typeof(MusicSystem)) as MusicSystem;
+        _musicSystem=  gameObject.GetComponent(typeof(MusicSystem)) as MusicSystem;
         
         gameObject.GetComponent<MusicSystem>();
        
-        Debug.Log(musicSystem);
-        isSound = PlayerPrefs.GetInt("isSound", 1);
-        isMusic = PlayerPrefs.GetInt("isMusic", 1);  
+        _isSound = PlayerPrefs.GetInt("isSound", 1);
+        _isMusic = PlayerPrefs.GetInt("isMusic", 1);  
         SetListener();
     }
 
@@ -50,30 +49,30 @@ public class ButtonSystemSettingsMenu : MonoBehaviour
 
     void OnClickSoundBt()
     {
-        if (isSound == 1) { 
+        if (_isSound == 1) { 
         
              PlayerPrefs.SetInt("isSound", 0);
-             isSound = 0;
+             _isSound = 0;
               }
         else {
             PlayerPrefs.SetInt("isSound", 1); 
-            isSound = 1;
+            _isSound = 1;
             }
     }
 
     void OnClickMusicBt()
     {
-        if (isMusic == 1)
+        if (_isMusic == 1)
         {
-            musicSystem.StopMusic();
+            _musicSystem.StopMusic();
             PlayerPrefs.SetInt("isMusic", 0);
-            isMusic = 0;
+            _isMusic = 0;
         }
         else
         {
-             musicSystem.PlayMusic();
+             _musicSystem.PlayMusic();
             PlayerPrefs.SetInt("isMusic", 1);
-            isMusic = 1;
+            _isMusic = 1;
         }
 
     }
@@ -81,11 +80,11 @@ public class ButtonSystemSettingsMenu : MonoBehaviour
     private void InitSettings()
     {
        
-        if (isSound == 1) 
+        if (_isSound == 1) 
         soundBtText.text = "ЗВУК : ВКЛ";     
         else soundBtText.text = "ЗВУК :  ВЫКЛ"; 
 
-        if (isMusic == 1) musicBtText.text = "МУЗЫКА : ВКЛ";  
+        if (_isMusic == 1) musicBtText.text = "МУЗЫКА : ВКЛ";  
         else musicBtText.text = "МУЗЫКА : ВЫКЛ"; 
 
     }
