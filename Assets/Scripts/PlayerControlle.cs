@@ -1,6 +1,7 @@
 
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PlayerState { Go, RunAttack, AttackEnemy, Dead, Protection }
 
@@ -27,6 +28,15 @@ public class PlayerControlle : MonoBehaviour
 
     private bool _sTAction = false;
 
+    [SerializeField]
+    private Button leftBt;
+     [SerializeField]
+    private Button rightBt;
+ [SerializeField]
+    private Button attackBt;
+ [SerializeField]
+    private Button protectedBt;
+
     #region Unity Events
 
     private void Awake()
@@ -34,6 +44,7 @@ public class PlayerControlle : MonoBehaviour
         InitializeComponents();
         ValidateReferences();
     }
+    
 
     private void Update()
     {
@@ -222,7 +233,7 @@ public class PlayerControlle : MonoBehaviour
             if (isDamageApplied)
             {
 
-                _infoEnamy.Damage(10);
+                _infoEnamy.Damage(30);
             }
             else
             {
