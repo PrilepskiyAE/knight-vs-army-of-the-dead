@@ -1,6 +1,7 @@
 
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public enum PlayerState { Go, RunAttack, AttackEnemy, Dead, Protection }
@@ -8,14 +9,27 @@ public enum PlayerState { Go, RunAttack, AttackEnemy, Dead, Protection }
 public class PlayerControlle : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField, Range(1f, 10f)] private float _walkSpeed = 3f;
-    [SerializeField, Range(3f, 15f)] private float _runSpeed = 6f;
+    [SerializeField, Range(1f, 10f)] private float _walkSpeed = 6f;
+    [SerializeField, Range(3f, 15f)] private float _runSpeed = 9f;
     [SerializeField, Range(0f, 1f)] private float _acceleration = 0.4f;
 
     [Space(10)]
     [Header("References")]
     [SerializeField] private Animator _animator;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+
+    [SerializeField]
+    private Button leftBt;
+    [SerializeField]
+    private Button rightBt;
+    [SerializeField]
+    private Button attackBt;
+    [SerializeField]
+    private Button protectedBt;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float forwardForce = 1f;
+
+    [SerializeField] private Rigidbody2D rb;
 
     private InfoPlayer _infoPlayer;
     private InfoEnany _infoEnamy;
@@ -28,23 +42,18 @@ public class PlayerControlle : MonoBehaviour
 
     private bool _sTAction = false;
 
-    [SerializeField]
-    private Button leftBt;
-     [SerializeField]
-    private Button rightBt;
- [SerializeField]
-    private Button attackBt;
- [SerializeField]
-    private Button protectedBt;
 
-    #region Unity Events
 
     private void Awake()
     {
         InitializeComponents();
         ValidateReferences();
     }
-    
+    private void Start()
+    {
+        leftBt.onClick.AddListener(OnClickLeft);
+        rightBt.onClick.AddListener(OnClickRight);
+    }
 
     private void Update()
     {
@@ -56,9 +65,6 @@ public class PlayerControlle : MonoBehaviour
         StateMachine();
     }
 
-    #endregion
-
-    #region State Machine
 
     private void StateMachine()
     {
@@ -84,12 +90,12 @@ public class PlayerControlle : MonoBehaviour
 
     private void ProtectionState()
     {
-        
+
         if (_sTAction && _infoPlayer.ST > 0)
         {
             _animator.SetBool("Protected", true);
             _infoPlayer.setSTAction(true);
-        }  
+        }
         else
         {
             _animator.SetBool("Protected", false);
@@ -131,15 +137,26 @@ public class PlayerControlle : MonoBehaviour
         }
     }
 
-    #endregion
 
-    #region Input & Movement
 
     private void HandleInput()
     {
-        _horizontalInput = Input.GetAxis("Horizontal");
+        //if(holdDuration == 0f) 
+
         _isRunning = Input.GetKey(KeyCode.LeftShift);
         _sTAction = Input.GetKey(KeyCode.F);
+
+
+        if (Input.GetMouseButton(0))
+        {
+            // Проверяем, что палец/мышь всё ещё на кнопке
+            if (EventSystem.current.currentSelectedGameObject == leftBt.gameObject) _horizontalInput = -1;
+            if (EventSystem.current.currentSelectedGameObject == rightBt.gameObject) _horizontalInput = 1;
+        }
+        else
+        {
+            _horizontalInput = Input.GetAxis("Horizontal");
+        }
     }
 
     private void HandleMovement()
@@ -155,12 +172,18 @@ public class PlayerControlle : MonoBehaviour
         {
             _currentState = PlayerState.Protection;
         }
+
+        if (Input.GetKeyDown(KeyCode.Q)) Jump();
+    
+       
     }
 
-    #endregion
-
-    #region Animation
-
+    private void Jump()
+    {
+        float direction = _spriteRenderer.flipX ? -1f : 1f;
+        Vector2 force = new Vector2(forwardForce * direction, jumpForce);
+        rb.AddForce(force, ForceMode2D.Impulse);
+    }
     private void HandleAnimation()
     {
         _isMoving = Mathf.Abs(_horizontalInput) > 0.1f;
@@ -186,10 +209,6 @@ public class PlayerControlle : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region Facing Direction
-
     private void HandleFacingDirection()
     {
         if (Mathf.Abs(_horizontalInput) > 0.1f)
@@ -198,9 +217,6 @@ public class PlayerControlle : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region Collision Events
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -220,9 +236,6 @@ public class PlayerControlle : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region Attack Logic
     public void AttemptAttackTask()
     {
         if (_infoEnamy != null && _infoEnamy.gameObject.activeInHierarchy)
@@ -246,10 +259,6 @@ public class PlayerControlle : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region Initialization
-
     private void InitializeComponents()
     {
         if (_animator == null) _animator = GetComponent<Animator>();
@@ -264,5 +273,15 @@ public class PlayerControlle : MonoBehaviour
         if (_infoPlayer == null) Debug.LogError("InfoPlayer не найден на объекте!");
     }
 
-    #endregion
+    void OnClickLeft()
+    {
+        _horizontalInput = 0;
+    }
+
+    void OnClickRight()
+    {
+        _horizontalInput = 0;
+    }
+
+
 }
