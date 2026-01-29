@@ -18,7 +18,12 @@ public class InfoPlayer : MonoBehaviour
     public void Damage(float damage)
     {
         if(!stAction) HP -= damage;
-        ST -= damageST;
+        if (ST > 0) ST -= damageST;
+    }
+
+    public void DamageST(float damage)
+    {
+        if (ST > 0) ST -= damage;
     }
 
     public void UpHP(float value)
@@ -35,13 +40,16 @@ public class InfoPlayer : MonoBehaviour
             if (timer >= recoveryDelay)
             {
                 ST++;
-                timer -= recoveryDelay;  // Обнуляем таймер (с учётом «перелива»)
+                timer -= recoveryDelay;  
+                Debug.Log("Stana"+ST);
             }
         }
         else
         {
             timer = 0;
         }
+
+        if(ST<-1)ST=0;
 
     }
 
