@@ -26,10 +26,13 @@ public class PlayerControlle : MonoBehaviour
     private Button attackBt;
     [SerializeField]
     private Button protectedBt;
+    [SerializeField]
+    private Button jumpBt;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float forwardForce = 1f;
 
     [SerializeField] private Rigidbody2D rb;
+   [SerializeField] private LayerMask groundLayer;
 
     private InfoPlayer _infoPlayer;
     private InfoEnany _infoEnamy;
@@ -42,6 +45,7 @@ public class PlayerControlle : MonoBehaviour
 
     private bool _sTAction = false;
 
+     private bool _isGrounded = false;
 
 
     private void Awake()
@@ -53,10 +57,14 @@ public class PlayerControlle : MonoBehaviour
     {
         leftBt.onClick.AddListener(OnClickLeft);
         rightBt.onClick.AddListener(OnClickRight);
+        attackBt.onClick.AddListener(OnClickAttack);
+        jumpBt.onClick.AddListener(Jump);
     }
 
     private void Update()
     {
+        _isGrounded=IsGrounded();
+       
         if (_infoPlayer.HP <= 0)
         {
             _currentState = PlayerState.Dead;
@@ -152,6 +160,7 @@ public class PlayerControlle : MonoBehaviour
             // Проверяем, что палец/мышь всё ещё на кнопке
             if (EventSystem.current.currentSelectedGameObject == leftBt.gameObject) _horizontalInput = -1;
             if (EventSystem.current.currentSelectedGameObject == rightBt.gameObject) _horizontalInput = 1;
+            _sTAction = EventSystem.current.currentSelectedGameObject == protectedBt.gameObject;
         }
         else
         {
@@ -174,15 +183,20 @@ public class PlayerControlle : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Q)) Jump();
-    
-       
+
+
     }
 
     private void Jump()
     {
-        float direction = _spriteRenderer.flipX ? -1f : 1f;
+        if (_isGrounded && _infoPlayer.ST>0)
+        {
+              float direction = _spriteRenderer.flipX ? -1f : 1f;
         Vector2 force = new Vector2(forwardForce * direction, jumpForce);
         rb.AddForce(force, ForceMode2D.Impulse);
+        _infoPlayer.DamageST(20);
+        }
+      
     }
     private void HandleAnimation()
     {
@@ -198,14 +212,7 @@ public class PlayerControlle : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (_isRunning)
-            {
-                _currentState = PlayerState.RunAttack;
-            }
-            else
-            {
-                _currentState = PlayerState.AttackEnemy;
-            }
+            OnClickAttack();
         }
     }
 
@@ -283,5 +290,26 @@ public class PlayerControlle : MonoBehaviour
         _horizontalInput = 0;
     }
 
+    void OnClickAttack()
+    {
+        if (_isRunning)
+        {
+            _currentState = PlayerState.RunAttack;
+        }
+        else
+        {
+            _currentState = PlayerState.AttackEnemy;
+        }
+    }
+    bool IsGrounded()
+    {
+        Vector2 position = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 1.0f;
+
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+
+        return hit.collider != null;
+    }
 
 }
