@@ -191,7 +191,7 @@ public class PlayerControlle : MonoBehaviour
     {
         if (_isGrounded && _infoPlayer.ST>0)
         {
-              float direction = _spriteRenderer.flipX ? -1f : 1f;
+            float direction = _spriteRenderer.flipX ? -1f : 1f;
         Vector2 force = new Vector2(forwardForce * direction, jumpForce);
         rb.AddForce(force, ForceMode2D.Impulse);
         _infoPlayer.DamageST(20);
