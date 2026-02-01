@@ -1,13 +1,13 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+
 public interface IShase
 {
     void IsShase(bool action);
 }
-public class EnamyNavigation : MonoBehaviour, IShase
+
+public class AINavigation : MonoBehaviour
 {
-    public enum EnemyState { Go, AttackPlayer, cShase }
+    public enum EnemyState { GoState,  ShaseState, StopStop }
     public EnemyState currentState;
     public Transform[] points;
     private float speed = 1;
@@ -17,20 +17,16 @@ public class EnamyNavigation : MonoBehaviour, IShase
     private bool forward;
     private Animator animator;
     private SpriteRenderer sprite;
-
     private InfoEnany infoEnany;
-
     private float _threshold = 1.1f;
-
-    private bool detected = true;
-
     private bool isLive = true;
-    private bool canAttack = true;
+    private bool detected = true;
+   
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        currentState = EnemyState.Go;
+        currentState = EnemyState.GoState;
         forward = false;
         currentPoint = 0;
         targetPoint = points[currentPoint];
@@ -38,15 +34,14 @@ public class EnamyNavigation : MonoBehaviour, IShase
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (infoEnany.isLive)
         {
             switch (currentState)
             {
-                case EnemyState.Go: Go(); break;
-                case EnemyState.AttackPlayer: AttackPlayer(); break;
-                case EnemyState.cShase: Shase(); break;
+                case EnemyState.GoState: Go(); break;
+                case EnemyState.ShaseState: Shase(); break;
             }
         }
         else
@@ -60,14 +55,15 @@ public class EnamyNavigation : MonoBehaviour, IShase
         if (isLive)
         {
             isLive = false;
-            animator.SetBool("attak", false);
+            animator.SetBool("attack", false);
             animator.SetTrigger("Dead");
         }
 
     }
     void Shase()
     {
-        animator.SetBool("attak", false);
+        animator.SetBool("attack", false);
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player == null)
@@ -102,14 +98,21 @@ public class EnamyNavigation : MonoBehaviour, IShase
         bool reachedLeft = Mathf.Approximately(newX, minX);
         bool reachedRight = Mathf.Approximately(newX, maxX);
 
-        if (reachedLeft || reachedRight) animator.SetTrigger("IdleOk");
-        transform.position = new Vector2(newX, currentPos.y);
+        if (reachedLeft || reachedRight) 
+        {
+            animator.SetBool("Idle",true);
+        }else
+        {
+            animator.SetBool("Idle",false);
+            transform.position = new Vector2(newX, currentPos.y);
+        }
+        
     }
 
     void Go()
     {
-        animator.SetBool("attak", false);
-        animator.SetTrigger("IdleNok");
+        animator.SetBool("attack", false);
+        animator.SetBool("Idle", false);
 
         if (Vector3.Distance(transform.position, targetPoint.position) < _threshold)
         {
@@ -137,42 +140,13 @@ public class EnamyNavigation : MonoBehaviour, IShase
         }
         transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
     }
-
-    void AttackPlayer()
-    {
-         if (!canAttack || !infoEnany.isLive) return;
-        animator.SetTrigger("IdleNok");
-        animator.SetBool("run", false);
-        animator.SetBool("attak", infoEnany.isLive);
-        StartCoroutine(AttackCooldown());
-    }
-
-    IEnumerator AttackCooldown()
-    {
-        canAttack = false; 
-        yield return new WaitForSeconds(1f); 
-        animator.SetBool("attak", false); 
-        canAttack = true;
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && infoEnany.isLive)
-        {
-
-            currentState = EnemyState.AttackPlayer;
-        }
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && infoEnany.isLive)
         {
-            currentState = EnemyState.cShase;
+            currentState = EnemyState.ShaseState;
         }
     }
-
     public void IsShase(bool action)
     {
 
@@ -180,15 +154,16 @@ public class EnamyNavigation : MonoBehaviour, IShase
         {
             if (detected)
             {
-                currentState = EnemyState.cShase;
+                currentState = EnemyState.ShaseState;
                 detected = false;
             }
 
         }
         else
         {
-            currentState = EnemyState.Go;
+            currentState = EnemyState.GoState;
             detected = true;
         }
     }
+
 }
