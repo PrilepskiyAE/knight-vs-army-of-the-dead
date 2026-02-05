@@ -175,6 +175,7 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
 
     public void IsAttack(bool action)
     {
+        if(!infoEnany.isLive)return;
         if (action)
         {
             StartCoroutine(StartAttack(1f));
