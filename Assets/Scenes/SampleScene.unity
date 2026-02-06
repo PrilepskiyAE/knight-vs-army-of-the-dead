@@ -21573,41 +21573,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1115397393525997703, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2355765104410634798, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 2355765104410634798, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827782128743432500, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827782128743432500, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.26
-      objectReference: {fileID: 0}
     - target: {fileID: 4278556032265113433, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_Name
       value: Skeleton_Archer
       objectReference: {fileID: 0}
-    - target: {fileID: 6286956383306580412, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
-      propertyPath: enabledShase
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7245792456928459767, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.51
+      value: 16.153
       objectReference: {fileID: 0}
     - target: {fileID: 7245792456928459767, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -0.103
       objectReference: {fileID: 0}
     - target: {fileID: 7245792456928459767, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_LocalPosition.z
