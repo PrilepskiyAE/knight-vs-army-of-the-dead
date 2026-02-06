@@ -16,6 +16,8 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
     public enum EnemyState { GoState,  ShaseState, StopState }
     public EnemyState currentState;
     public Transform[] points;
+
+    public bool enabledShase = true;
     private float speed = 1;
     private Transform targetPoint;
     private int currentPoint;
@@ -156,15 +158,22 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
     }
     public void IsShase(bool action)
     {
-
+       
         if (action)
         {
             if (detected)
             {
+                if (!enabledShase)
+                {
+                    StartCoroutine(StartAttack(1f));
+                   currentState = EnemyState.StopState;
+                }
+                else
+                {
                 currentState = EnemyState.ShaseState;
                 detected = false;
+                }
             }
-
         }
         else
         {
