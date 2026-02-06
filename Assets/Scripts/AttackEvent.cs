@@ -16,6 +16,9 @@ public class AttackEvent : MonoBehaviour
         }
     }
 
-
+ void ShortAction()
+    {
+        
+    }
 
 }
