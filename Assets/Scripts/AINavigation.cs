@@ -165,7 +165,7 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
             {
                 if (!enabledShase)
                 {
-                    StartCoroutine(StartAttack(1f));
+                    animator.SetBool("attack", true);
                    currentState = EnemyState.StopState;
                 }
                 else
@@ -187,7 +187,7 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
         if(!infoEnany.isLive)return;
         if (action)
         {
-            StartCoroutine(StartAttack(1f));
+            animator.SetBool("attack", true);
             currentState = EnemyState.StopState;
         }
         else
@@ -197,11 +197,4 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
         }
     }
 
-    private IEnumerator StartAttack(float delayTime)
-    {
-         animator.SetBool("Idle", true);
-        yield return new WaitForSeconds(delayTime);
-         animator.SetBool("Idle", false);
-         animator.SetBool("attack", true);
-    }
 }
