@@ -1,4 +1,5 @@
 
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -32,7 +33,7 @@ public class PlayerControlle : MonoBehaviour
     [SerializeField] private float forwardForce = 1f;
 
     [SerializeField] private Rigidbody2D rb;
-   [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask groundLayer;
 
     private InfoPlayer _infoPlayer;
     private InfoEnany _infoEnamy;
@@ -45,9 +46,10 @@ public class PlayerControlle : MonoBehaviour
 
     private bool _sTAction = false;
 
-     private bool _isGrounded = false;
+    private bool _isGrounded = false;
 
-
+    private float _attackStartTime;       // Время начала атаки
+    private bool _isAttackCooldown = false; // Флаг cooldown (опционально, для наглядности)
     private void Awake()
     {
         InitializeComponents();
@@ -63,14 +65,15 @@ public class PlayerControlle : MonoBehaviour
 
     private void Update()
     {
-        _isGrounded=IsGrounded();
-       
+        _isGrounded = IsGrounded();
+
         if (_infoPlayer.HP <= 0)
         {
             _currentState = PlayerState.Dead;
         }
         HandleInput();
         StateMachine();
+
     }
 
 
@@ -125,6 +128,7 @@ public class PlayerControlle : MonoBehaviour
         {
             Debug.Log("Damage dealt to: " + _infoEnamy.gameObject.name);
         }
+
 
         _animator.SetBool("SAttack1", true);
         _currentState = PlayerState.Go;
@@ -189,14 +193,14 @@ public class PlayerControlle : MonoBehaviour
 
     private void Jump()
     {
-        if (_isGrounded && _infoPlayer.ST>0)
+        if (_isGrounded && _infoPlayer.ST > 0)
         {
             float direction = _spriteRenderer.flipX ? -1f : 1f;
-        Vector2 force = new Vector2(forwardForce * direction, jumpForce);
-        rb.AddForce(force, ForceMode2D.Impulse);
-        _infoPlayer.DamageST(20);
+            Vector2 force = new Vector2(forwardForce * direction, jumpForce);
+            rb.AddForce(force, ForceMode2D.Impulse);
+            _infoPlayer.DamageST(20);
         }
-      
+
     }
     private void HandleAnimation()
     {
@@ -292,15 +296,30 @@ public class PlayerControlle : MonoBehaviour
 
     void OnClickAttack()
     {
+        AnimatorStateInfo currentStateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+        bool isAttackAnimationPlaying = currentStateInfo.IsName("Attak") 
+        && currentStateInfo.normalizedTime < 1.0f; // normalizedTime
         if (_isRunning)
         {
             _currentState = PlayerState.RunAttack;
         }
         else
         {
+            if (_isAttackCooldown) return;
+            if(isAttackAnimationPlaying)return;
             _currentState = PlayerState.AttackEnemy;
+            _attackStartTime = Time.time;
+            _isAttackCooldown = true;
+            StartCoroutine(ResetAttackCooldown());
         }
     }
+
+    private IEnumerator ResetAttackCooldown()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _isAttackCooldown = false;
+    }
+
     bool IsGrounded()
     {
         Vector2 position = transform.position;
