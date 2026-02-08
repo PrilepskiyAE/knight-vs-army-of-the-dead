@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f69c92702497ede45910263ac37e2b8c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5b5b33155da904b0eab9f082bc14e8c7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -47,7 +47,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 62907c5001cc28d969b2bbb38b237da9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 771b4b56e1768a32fb731d5057af9fd6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -60,7 +60,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sceleton_Warrown_idle
+  m_Name: Skeleton_Archer_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2053ec57cdd009c08a3a733188643e71, type: 2}
+  m_Motion: {fileID: 7400000, guid: 559622544dcf0d10eb6e78b2a2e9f7ce, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -169,7 +169,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: skeleton_spearman
+  m_Name: Skeleton_Archer
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Dead
@@ -235,7 +235,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sceleton_Warrown_walk
+  m_Name: Skeleton_Archer_walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -249,7 +249,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dd918ff82a74571e083cefe62ef26f1f, type: 2}
+  m_Motion: {fileID: 7400000, guid: e92079d1758b4909e802a6661901a239, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
