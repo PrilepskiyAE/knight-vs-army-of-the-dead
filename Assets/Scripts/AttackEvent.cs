@@ -7,6 +7,7 @@ public class AttackEvent : MonoBehaviour
     private InfoPlayer infoPlayer = null;
     [SerializeField]
     private float damage = 3;
+    [SerializeField] private GameObject prefabToSpawn;
 
     void AttackAction()
     {
@@ -16,9 +17,23 @@ public class AttackEvent : MonoBehaviour
         }
     }
 
- void ShortAction()
+    void ShortAction()
     {
-        
+        GameObject spawnedObject = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+        spawnedObject.transform.SetParent(transform);
+        Arrow arrowScript = spawnedObject.GetComponent<Arrow>();
+
+        if (arrowScript != null)
+        {
+            SpriteRenderer parentRenderer = GetComponent<SpriteRenderer>();
+            if (parentRenderer != null)
+            {
+                arrowScript.SetFlipDirection(parentRenderer.flipX);
+            }
+        }
+
+        spawnedObject.transform.SetParent(null);
     }
 
 }
+
