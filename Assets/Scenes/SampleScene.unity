@@ -7409,7 +7409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7302559395694051094, guid: 0cfd3da38bf204db7ae0ce2f04c50506, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21345,6 +21345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Spearman
       objectReference: {fileID: 0}
+    - target: {fileID: 8792022938417526635, guid: f72d1051e7782810ca5a1115c4a589ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21589,6 +21593,10 @@ PrefabInstance:
       propertyPath: infoPlayer
       value: 
       objectReference: {fileID: 784522779}
+    - target: {fileID: 1265431031146268028, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
+      propertyPath: prefabToSpawn
+      value: 
+      objectReference: {fileID: 6929354840482044464, guid: 8e9b0b7e949ca88db8edc30774a5ef79, type: 3}
     - target: {fileID: 2472854055384312241, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9229
@@ -21631,11 +21639,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7245792456928459767, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.18
+      value: -14.48
       objectReference: {fileID: 0}
     - target: {fileID: 7245792456928459767, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.103
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 7245792456928459767, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_LocalPosition.z
