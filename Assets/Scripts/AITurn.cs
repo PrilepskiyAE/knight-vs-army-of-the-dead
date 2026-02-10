@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AITurn : MonoBehaviour
 {
+    [SerializeField]
+    private int distante = 4;
     private readonly RaycastHit2D[] _raycastHit2D = new RaycastHit2D[1];
     private ContactFilter2D _contactFilter;
     private Rigidbody2D _rb;
@@ -29,11 +31,11 @@ public class AITurn : MonoBehaviour
     {
          if (_infoEnany.isLive)
         {
-            Debug.DrawRay(transform.position, transform.right * 4, Color.red);
-            Debug.DrawRay(transform.position, -transform.right * 4, Color.blue);
+            Debug.DrawRay(transform.position, transform.right * distante, Color.red);
+            Debug.DrawRay(transform.position, -transform.right * distante, Color.blue);
 
-            _collisionCount = _rb.Cast(transform.right, _contactFilter, _raycastHit2D, 4) > 0;
-            _collisionCount2 = _rb.Cast(-transform.right, _contactFilter, _raycastHit2D, 4) > 0;
+            _collisionCount = _rb.Cast(transform.right, _contactFilter, _raycastHit2D, distante) > 0;
+            _collisionCount2 = _rb.Cast(-transform.right, _contactFilter, _raycastHit2D, distante) > 0;
 
             if (_collisionCount || _collisionCount2)
             {
