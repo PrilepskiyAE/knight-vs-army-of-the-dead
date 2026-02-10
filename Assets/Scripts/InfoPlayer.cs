@@ -28,7 +28,7 @@ public class InfoPlayer : MonoBehaviour
 
     public void UpHP(float value)
     {
-        HP += value;
+         HP += value;
     }
 
     void Update()
@@ -50,6 +50,8 @@ public class InfoPlayer : MonoBehaviour
         }
 
         if(ST<-1)ST=0;
+
+        if (HP > maxHP) HP = 100;
 
     }
 
