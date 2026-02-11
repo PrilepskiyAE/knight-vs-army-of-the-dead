@@ -18,33 +18,33 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
     public Transform[] points;
 
     public bool enabledShase = true;
-    private float speed = 1;
-    private Transform targetPoint;
-    private int currentPoint;
+    private float _speed = 1;
+    private Transform _targetPoint;
+    private int _currentPoint;
     public bool cyclr = true;
-    private bool forward;
-    private Animator animator;
-    private SpriteRenderer sprite;
-    private InfoEnany infoEnany;
+    private bool _forward;
+    private Animator _animator;
+    private SpriteRenderer _sprite;
+    private InfoEnany _infoEnany;
     private float _threshold = 1.1f;
-    private bool isLive = true;
-    private bool detected = true;
+    private bool _isLive = true;
+    private bool _detected = true;
    
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        _animator = GetComponentInChildren<Animator>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
         currentState = EnemyState.GoState;
-        forward = false;
-        currentPoint = 0;
-        targetPoint = points[currentPoint];
-        infoEnany = GetComponent<InfoEnany>();
+        _forward = false;
+        _currentPoint = 0;
+        _targetPoint = points[_currentPoint];
+        _infoEnany = GetComponent<InfoEnany>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (infoEnany.isLive)
+        if (_infoEnany.isLive)
         {
             switch (currentState)
             {
@@ -61,17 +61,17 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
     }
     void Dead()
     {
-        if (isLive)
+        if (_isLive)
         {
-            isLive = false;
-            animator.SetBool("attack", false);
-            animator.SetTrigger("Dead");
+            _isLive = false;
+            _animator.SetBool("attack", false);
+            _animator.SetTrigger("Dead");
         }
 
     }
     void Shase()
     {
-        animator.SetBool("attack", false);
+        _animator.SetBool("attack", false);
         
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
@@ -101,7 +101,7 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
         float newX = Mathf.MoveTowards(
             currentPos.x,
             targetX,
-            speed * Time.deltaTime
+            _speed * Time.deltaTime
         );
         newX = Mathf.Clamp(newX, minX, maxX);
         bool reachedLeft = Mathf.Approximately(newX, minX);
@@ -109,10 +109,10 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
 
         if (reachedLeft || reachedRight) 
         {
-            animator.SetBool("Idle",true);
+            _animator.SetBool("Idle",true);
         }else
         {
-            animator.SetBool("Idle",false);
+            _animator.SetBool("Idle",false);
             transform.position = new Vector2(newX, currentPos.y);
         }
         
@@ -120,38 +120,38 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
 
     void Go()
     {
-        animator.SetBool("attack", false);
-        animator.SetBool("Idle", false);
+        _animator.SetBool("attack", false);
+        _animator.SetBool("Idle", false);
 
-        if (Vector3.Distance(transform.position, targetPoint.position) < _threshold)
+        if (Vector3.Distance(transform.position, _targetPoint.position) < _threshold)
         {
 
-            if (forward) currentPoint++; else currentPoint--;
-            if (currentPoint >= points.Length && cyclr)
+            if (_forward) _currentPoint++; else _currentPoint--;
+            if (_currentPoint >= points.Length && cyclr)
             {
-                currentPoint = 0;
+                _currentPoint = 0;
 
             }
-            else if (currentPoint >= points.Length && !cyclr)
+            else if (_currentPoint >= points.Length && !cyclr)
             {
-                currentPoint = points.Length - 2;
-                forward = false;
+                _currentPoint = points.Length - 2;
+                _forward = false;
 
             }
-            else if (currentPoint < 0)
+            else if (_currentPoint < 0)
             {
-                forward = true;
-                currentPoint = 1;
+                _forward = true;
+                _currentPoint = 1;
 
             }
-            sprite.flipX = currentPoint == 0;
-            targetPoint = points[currentPoint];
+            _sprite.flipX = _currentPoint == 0;
+            _targetPoint = points[_currentPoint];
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _targetPoint.position, _speed * Time.deltaTime);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && infoEnany.isLive)
+        if (collision.CompareTag("Player") && _infoEnany.isLive)
         {
             currentState = EnemyState.ShaseState;
         }
@@ -161,38 +161,38 @@ public class AINavigation : MonoBehaviour,IAttack, IShase
        
         if (action)
         {
-            if (detected)
+            if (_detected)
             {
                 if (!enabledShase)
                 {
-                    animator.SetBool("attack", true);
+                    _animator.SetBool("attack", true);
                    currentState = EnemyState.StopState;
                 }
                 else
                 {
                 currentState = EnemyState.ShaseState;
-                detected = false;
+                _detected = false;
                 }
             }
         }
         else
         {
             currentState = EnemyState.GoState;
-            detected = true;
+            _detected = true;
         }
     }
 
     public void IsAttack(bool action)
     {
-        if(!infoEnany.isLive)return;
+        if(!_infoEnany.isLive)return;
         if (action)
         {
-            animator.SetBool("attack", true);
+            _animator.SetBool("attack", true);
             currentState = EnemyState.StopState;
         }
         else
         {   
-            animator.SetBool("Idle", false);
+            _animator.SetBool("Idle", false);
             currentState = EnemyState.ShaseState;
         }
     }
