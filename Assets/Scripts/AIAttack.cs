@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class AIAttack : MonoBehaviour
 {
-    private Animator animator;
+    private Animator _animator;
     private InfoPlayer _infoPlayer;
-    private IAttack iAttack;
+    private IAttack _iAttack;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-        iAttack = GetComponent<AINavigation>();      
+        _animator = GetComponentInChildren<Animator>();
+        _iAttack = GetComponent<AINavigation>();      
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,7 +17,7 @@ public class AIAttack : MonoBehaviour
         if (other.CompareTag("Player"))
         {   
             _infoPlayer = other.GetComponentInChildren<InfoPlayer>();
-            iAttack.IsAttack(true);
+            _iAttack.IsAttack(true);
         }
     }
 
@@ -26,7 +26,7 @@ public class AIAttack : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _infoPlayer = null;
-            iAttack.IsAttack(false);
+            _iAttack.IsAttack(false);
         }
     }
  
