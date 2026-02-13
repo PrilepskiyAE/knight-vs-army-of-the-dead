@@ -21504,6 +21504,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 854155434590182197, guid: e1c61cbe2925d2f6ab6526c82cec4680, type: 3}
+      propertyPath: damage
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 854155434590182197, guid: e1c61cbe2925d2f6ab6526c82cec4680, type: 3}
+      propertyPath: infoPlayer
+      value: 
+      objectReference: {fileID: 784522779}
     - target: {fileID: 2392918884119810320, guid: e1c61cbe2925d2f6ab6526c82cec4680, type: 3}
       propertyPath: m_Name
       value: Orc_Warrown
