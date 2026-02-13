@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4602558153241473881, guid: 51e7de7e05dcd56f480dd578ebc05a2f, type: 3}
       propertyPath: m_Name
-      value: Enemy 1 Variant
+      value: Orc_warrior
       objectReference: {fileID: 0}
     - target: {fileID: 5026181724525867854, guid: 51e7de7e05dcd56f480dd578ebc05a2f, type: 3}
       propertyPath: m_Sprite
@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7862493629047084686, guid: 51e7de7e05dcd56f480dd578ebc05a2f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 253f385cac315a763a4cfbfac24ec6c7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
