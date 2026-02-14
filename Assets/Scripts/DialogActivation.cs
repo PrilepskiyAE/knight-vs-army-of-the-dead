@@ -30,6 +30,7 @@ public class DialogActivation : MonoBehaviour
         if (collision.tag == "Player")
         {
              dialogSystem.SetActive(false);
+             this.gameObject.SetActive(false);
         }
        
     }
