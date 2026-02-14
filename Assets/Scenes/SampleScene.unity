@@ -7409,7 +7409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7302559395694051094, guid: 0cfd3da38bf204db7ae0ce2f04c50506, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21347,7 +21347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8792022938417526635, guid: f72d1051e7782810ca5a1115c4a589ec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21518,11 +21518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9140933813447271870, guid: e1c61cbe2925d2f6ab6526c82cec4680, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.38
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 9140933813447271870, guid: e1c61cbe2925d2f6ab6526c82cec4680, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.07
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 9140933813447271870, guid: e1c61cbe2925d2f6ab6526c82cec4680, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21609,9 +21609,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4729408894266765586, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
+      propertyPath: HP
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729408894266765586, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
+      propertyPath: maxHP
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5143692270892709844, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805679500751610589, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6551281
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805679500751610589, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.006915629
       objectReference: {fileID: 0}
     - target: {fileID: 6985025662365524487, guid: fa3ba9e969becb040930d9a824c17d39, type: 3}
       propertyPath: jumpBt
@@ -21704,7 +21720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278556032265113433, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5195150152302650966, guid: 7d6c1bf00b80165bdae9d2bb0583ef42, type: 3}
       propertyPath: distante
